@@ -1,5 +1,3 @@
-/*Didn't understand the question on this one- should each pile have one coconut remaining? If so that's what this program tests for*/
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
