@@ -54,6 +54,7 @@ int main(void) {
 	}
 
 	//User goes first if even
+	//Note: I just realized that selecting based on odd/even makes no sense since we make sure it's odd at the beginning.
 	if(cnt % 2) {
 		player1 = userplay;
 		player2 = botplay;
