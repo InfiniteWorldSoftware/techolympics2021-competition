@@ -31,19 +31,14 @@ void botplay(int64_t *cnt, int64_t *bcnt, int64_t *ucnt) {
 	/*Avoid negatives*/
 	if(*cnt <= 0)
 		return;
-	else if(*cnt > 5) {
+	/*Take 2 if we are odd already*/
+	if(*bcnt % 2 && *cnt > 1)
+		take(2, &cnt, &bcnt);
+	/*If not, become odd.*/
+	else if(!(*bcnt % 2) && *cnt >= 3)
 		take(3, &cnt, &bcnt);
-	}
-	else {
-		/*Take 2 if we are odd already*/
-		if(*bcnt % 2 && *cnt > 1) {
-			take(2, &cnt, &bcnt);
-		}
-		/*If not, become odd.*/
-		else if(!(*bcnt % 2)) {
-			take(3, &cnt, &bcnt);
-		}
-	}
+	else if(!(*bcnt % 2) && *cnt < 3)
+		take(1, &cnt, &bcnt);
 }
 
 int main(void) {
@@ -58,7 +53,7 @@ int main(void) {
 		scanf("%ld", &cnt);
 	}
 
-	if(!(cnt % 2)) {
+	if((cnt % 2)) {
 		//If odd go second
 		player1 = userplay;
 		player2 = botplay;
