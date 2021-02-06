@@ -54,12 +54,10 @@ int main(void) {
 	}
 
 	if((cnt % 2)) {
-		//If odd go second
 		player1 = userplay;
 		player2 = botplay;
 	}
 	else {
-		//If even go first
 		player1 = botplay;
 		player2 = userplay;
 	}
