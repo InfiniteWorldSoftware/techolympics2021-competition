@@ -53,7 +53,8 @@ int main(void) {
 		scanf("%ld", &cnt);
 	}
 
-	if((cnt % 2)) {
+	//User goes first if even
+	if(cnt % 2) {
 		player1 = userplay;
 		player2 = botplay;
 	}
