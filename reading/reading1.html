@@ -1,0 +1,36 @@
+<html>
+<body>
+<script text="text/javascript">
+
+function submit()
+{
+    <!--Get string from inputBoxA and inputBoxB-->
+    var inputStringA = document.getElementById("inputBoxA").value;
+    var inputStringB = document.getElementById("inputBoxB").value;
+    <!--String to int-->
+    var a = parseInt(inputStringA);
+    var b = parseInt(inputStringB);
+    <!--Set a to a + b. Set b to a - b. Set a to a - b-->
+    a = a+b;
+    b = a-b;
+    a = a-b;
+    <!--Output values to box-->
+    document.getElementById("inputBoxA").value = a;
+    document.getElementById("inputBoxB").value = b;
+}
+</script>
+<table>
+    <tr>
+        <th>Input A</th><th>Input B</th></tr>
+    </tr>
+    <tr>
+<td><input id="inputBoxA"></input></td>
+<td><input id="inputBoxB"></input></td>
+</tr>
+</table>
+
+<button id="submit" onclick="submit()">submit data</button>
+<div id="result">
+</div>
+</body>
+</html>

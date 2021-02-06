@@ -1,0 +1,57 @@
+<html>
+<body>
+<script>
+
+var limitA = 60;
+var limitB = 60;
+
+function makeNice(x)
+{
+    if (x > 9)
+      return x;
+    return "0"+x;
+}
+function bop()
+{
+	var inputString = document.getElementById("C").innerHTML;
+    var val = parseInt(inputString);
+    val = val + 1;
+	document.getElementById("C").innerHTML = makeNice(val);
+
+}
+
+/* What does the function bip() do? */
+/*Increments the value val. If val >= 60, it is reset to zero and calls bop, which increments another variable*/
+function bip()
+{
+	var inputString = document.getElementById("B").innerHTML;
+    var val = parseInt(inputString);
+    val = val + 1;
+    if (val >= limitB)
+    {
+        val = 0;
+        bop();
+    }
+	document.getElementById("B").innerHTML = makeNice(val);
+
+}
+function boop()
+{
+	var inputString = document.getElementById("A").innerHTML;
+    var val = parseInt(inputString);
+    val = val + 1;
+    if (val >= limitA)
+    {
+        val = 0;
+        bip();
+    }
+	document.getElementById("A").innerHTML = makeNice(val);
+
+}
+</script>
+<span id="C">00</span>:<span id="B">00</span>:<span id="A">00</span>
+
+<button id="submit" onclick="boop()">Boop!</button>
+</div>
+</body>
+</html>

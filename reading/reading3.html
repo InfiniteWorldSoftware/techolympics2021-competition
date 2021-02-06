@@ -1,0 +1,51 @@
+<html>
+<body>
+<script>
+
+function buildArray(inputString)
+{
+    myList = new Array();
+	myList = inputString.split(",");
+	for (item = 0; item < myList.length; item++)
+	{
+		myList[item] = parseInt(myList[item]);
+	}
+    return myList;
+}
+
+/* What does function doTheThing do? */
+/*Counts how many times there are NOT equivalent numbers to the value at i, from i + 1 onwards.*/
+function doTheThing(myList)
+{
+    var count = 0;
+    for (i = 0; i < myList.length; i++)
+    {
+        var flag = false;
+        for (j = i+1; j < myList.length; j++)
+        {
+            if (myList[i] == myList[j])
+                flag = true;
+        }
+        if (!flag)
+            ++count;
+    }
+    return count;
+}
+function submit()
+{
+	var inputString = document.getElementById("inputBox").value;
+
+	var myList = buildArray(inputString); 
+    
+    var result = doTheThing(myList);
+	
+	document.getElementById("result").innerHTML = result;
+
+}
+</script>
+Input a list of integers separated by commas, e.g. 4, 1, 2, 6, 3, 4<p></p>
+<input id="inputBox"></input><button id="submit" onclick="submit()">submit data</button>
+<div id="result">
+</div>
+</body>
+</html>

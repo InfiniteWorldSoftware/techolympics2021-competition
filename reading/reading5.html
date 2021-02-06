@@ -1,0 +1,55 @@
+<html>
+<body>
+<script>
+
+function buildArray(inputString)
+{
+    myList = new Array();
+	myList = inputString.split(",");
+	for (item = 0; item < myList.length; item++)
+	{
+		myList[item] = parseInt(myList[item]);
+	}
+    return myList;
+}
+
+/* What do the functions B, A, doTheThing do? */
+/*Alternates adding and subtracting the values stored in myList to and from resultSoFar. The final answer is stored in resultSoFar. It starts by adding array element 0 to resultSoFar, then subtracting element 1 from resultSoFar, adding element 2 to result so far, and this process repeats until i is equal to the length of the list. Then, it returns resultSoFar as the answer.*/
+function B(myList, i, resultSoFar)
+{
+    if (i == myList.length)
+      return resultSoFar;
+    else return A(myList, i+1, resultSoFar - myList[i]);
+}
+
+function A(myList, i, resultSoFar)
+{
+    if (i == myList.length)
+      return resultSoFar;
+    else return B(myList, i+1, resultSoFar + myList[i]);
+}
+function doTheThing(myList)
+{
+    /*count is a red herring*/
+    var count = 0;
+    return A(myList,0,0);
+    
+}
+function submit()
+{
+	var inputString = document.getElementById("inputBox").value;
+
+	var myList = buildArray(inputString); 
+    
+    var result = doTheThing(myList);
+	
+	document.getElementById("result").innerHTML = result;
+
+}
+</script>
+Input a list of integers separated by commas, e.g. 4, 1, 2, 6, 3, 4<p></p>
+<input id="inputBox"></input><button id="submit" onclick="submit()">submit data</button>
+<div id="result">
+</div>
+</body>
+</html>
