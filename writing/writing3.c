@@ -1,3 +1,9 @@
+/*Pebble program*/
+/*
+ *This is a game where the person who takes the last pebble wins.
+ *The algorithm for this problem is fairly straightforward. Let the user take the stones, all the while subtracting 5 stones from the pile.
+ *Eventually, make it so that there are only 6 stones in the pile. Once that happens, the bot will win.
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
